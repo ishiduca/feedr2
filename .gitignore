@@ -1,0 +1,8 @@
+*.swp
+export.xml
+feeds
+log
+dbs
+node_modules
+package-lock.json
+static/js

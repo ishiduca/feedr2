@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+'use strict'
+var argv = require('minimist')(process.argv.slice(2))
+var addFeed = require('../lib/crawler/add-feed')
+var path = require('path')
+var fs = require('fs')
+
+var file = path.join(__dirname, '../feeds/feed.txt')
+argv._.map(uri => addFeed(uri, null, file, onEnd))
+
+function onEnd (err, line) {
+  err ? onError(err)
+      : console.log(line)
+}
+
+function onError (err) {
+  var log = path.join(__dirname, String(Date.now()) + '.log')
+  fs.writeFile(log, String(err) + '\n\n' + err.stack, (err) => {
+    err && console.error(err)
+  })
+  console.log(String(err))
+  console.log(`detail "${log}"`)
+}

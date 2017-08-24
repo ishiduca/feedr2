@@ -1,0 +1,53 @@
+{
+  "name": "feedr2",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "standard",
+    "build": "npm run lint && browserify ./app/main.js -o ./static/js/bundle.js",
+    "start": "NODE_PATH=lib PORT=3000 node feedr > /dev/null 2>&1 &"
+  },
+  "author": "ishiduca@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "bl": "^1.2.1",
+    "buoyancy": "^2.1.1",
+    "combokeys": "^2.4.6",
+    "ecstatic": "^2.2.1",
+    "feedparser": "^2.2.1",
+    "hyperquest": "^2.1.2",
+    "iconv-lite": "^0.4.18",
+    "inherits": "^2.0.3",
+    "leveldown": "^1.7.2",
+    "levelup": "^1.3.9",
+    "localstorage-down": "^0.6.7",
+    "mississippi": "^1.3.0",
+    "opmlparser": "^0.8.0",
+    "reconnect-core": "^1.3.0",
+    "router-on-websocket-stream": "git+https://github.com/ishiduca/router-on-websocket-stream.git",
+    "routington": "^1.0.3",
+    "sanitize-html": "^1.14.1",
+    "sheetify": "^6.1.1",
+    "split2": "^2.1.1",
+    "subleveldown": "^2.1.0",
+    "timeago.js": "^3.0.2",
+    "websocket-stream": "^5.0.1"
+  },
+  "devDependencies": {
+    "minimist": "^1.2.0",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.8.0",
+    "yo-yoify": "^3.7.3"
+  },
+  "browserify": {
+    "transform": [
+      "yo-yoify",
+      "sheetify"
+    ]
+  },
+  "standard": {
+    "ignore": ["t/"]
+  }
+}
