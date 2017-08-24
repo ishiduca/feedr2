@@ -4,12 +4,14 @@ var app = buoyancy({
   unReadListFocus: null,
   unReadEntriesFocus: null,
   entriesViewModeIsFull: true,
+  help: null,
   pinList: [],
   unReadList: [],
   unReadEntries: []
 })
 
 app.reduce(xtend(
+  require('./reduce/help'),
   require('./reduce/un-read-list'),
   require('./reduce/un-read-entries')
 ))

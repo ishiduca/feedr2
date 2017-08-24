@@ -3,6 +3,7 @@ var css = require('sheetify')
 var feedlist = require('./feedlist')
 var entries = require('./entries')
 var pinlist = require('./pinlist')
+var help = require('./help')
 
 var prefix = css`
   :host {
@@ -39,6 +40,7 @@ module.exports = function dashboard (data, params, route, actionsUp) {
       ${feedlist(data, actionsUp)}
       ${entries(data, actionsUp)}
       ${pinlist(data, actionsUp)}
+      ${help(data, actionsUp)}
     </main>
   `
   return el
