@@ -1,12 +1,8 @@
-module.exports = function (emitter, getData) {
-  emitter.on('update', (el) => {
-    var focuses = document.querySelectorAll('.focus')
-    focuses && [].forEach.apply(focuses, [f => f.scrollIntoView(true)])
+var domwh = require('domwh')
 
-    if (getData().unReadEntriesFocus == null) {
-      document.querySelector('#Entries').scroll(0, 0)
-    }
-  })
+module.exports = function (emitter, getData) {
+  emitter.on('update', onResizeAndOnUpdate)
+  window.addEventListener('resize', onResizeAndOnUpdate)
 
   emitter.on('dom:openNewTab', link => {
     if (link == null) return
@@ -17,7 +13,24 @@ module.exports = function (emitter, getData) {
     var e = document.createEvent('MouseEvents')
     e.initMouseEvent('click', true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null)
     if (!a.dispatchEvent(e)) {
-      emitter.emit('error', new Error('can not new tab. uri[' + link + ']'))
+      emitter.emit('error', new Error(`can not new tab. uri[${link}]`))
     }
   })
+
+  function entriesReWidth () {
+    var $entries = document.querySelector('#Entries')
+    var windowWidth = domwh.window(window)[0]
+    $entries.style.width = (windowWidth - 318) + 'px'
+  }
+
+  function onResizeAndOnUpdate () {
+    entriesReWidth()
+
+    var fcss = document.querySelectorAll('.focus')
+    fcss && [].forEach.apply(fcss, [f => f.scrollIntoView(true)])
+
+    if (getData().unReadEntriesFocus == null) {
+      document.querySelector('#Entries').scroll(0, 0)
+    }
+  }
 }

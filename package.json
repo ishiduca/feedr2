@@ -1,6 +1,6 @@
 {
   "name": "feedr2",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "私家版RSS Reader",
   "main": "index.js",
   "scripts": {
@@ -15,6 +15,7 @@
     "bl": "^1.2.1",
     "buoyancy": "^2.1.1",
     "combokeys": "^2.4.6",
+    "domwh": "0.0.5",
     "ecstatic": "^2.2.1",
     "feedparser": "^2.2.1",
     "hyperquest": "^2.1.2",
@@ -48,6 +49,8 @@
     ]
   },
   "standard": {
-    "ignore": ["t/"]
+    "ignore": [
+      "t/"
+    ]
   }
 }

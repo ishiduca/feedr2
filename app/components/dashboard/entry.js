@@ -45,6 +45,12 @@ var prefix = css`
   :host header.isHide li {
     padding: 0 3px;
   }
+
+  :host header .category {
+    font-size: small;
+    display: inline-block;
+    margin: 0 3px;
+  }
   :host article {
     padding: 3px;
   }
@@ -88,6 +94,7 @@ function addHeader (entriesViewModeIsFull, entry, data, actionsUp) {
         <li>${buttonPin(entry.meta.pin, entry, actionsUp)}</li>
         <li>${timeago().format(entry.data.date)}</li>
         <li>${entry.data.author || 'some'}</li>
+        <li>${categories(entry.data.categories)}</li>
         <li>
           <a href=${entry.data.link}
             target='_blank'
@@ -99,6 +106,10 @@ function addHeader (entriesViewModeIsFull, entry, data, actionsUp) {
       </ul>
     </header>
   `
+}
+
+function categories (cs) {
+  return (cs || []).map(c => html` <div class="category">${c}</div>`)
 }
 
 function buttonPin (isPinned, entry, actionsUp) {

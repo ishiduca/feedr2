@@ -28,6 +28,7 @@ crawler.on('finishCrawl', () => {
   console.timeEnd('crawler.crawl')
 })
 
+crawler.once('end', () => console.log('! craler ended'))
 // craler.emit('error', ... でcrawlerが destroy() してしまうので..
 // missi.pipe(
 //   crawler,

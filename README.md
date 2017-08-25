@@ -9,6 +9,7 @@ LDRが失くなる前に動かせるようにする
 * 操作の全てをキーボードから行えるようにする
 * feedリストの並び替えをできるようにする
 * cssどうにかせな...
+* http clientのリトライ
 
 ### keyboard short cut
 
@@ -24,3 +25,11 @@ LDRが失くなる前に動かせるようにする
 * p: to pin / remove pin
 * r: update feed list
 * ?: show help / hide help
+
+
+create feed list(.txt)
+
+```
+$ mkdir feeds
+$ perl -wnl -e '/title="(.*?)".*?xmlurl="(.*?)"/i and print qq($2\t$1)' eport.xml > feeds/feed.txt
+```
