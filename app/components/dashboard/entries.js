@@ -37,8 +37,8 @@ module.exports = function (data, actionsUp) {
             }
           </a>
         </h2>
-        ${data.unReadEntries[0].data.description &&
-          html`<p>${data.unReadEntries[0].data.description}</p>`
+        ${data.unReadEntries[0].data.meta.description &&
+          html`<p>${data.unReadEntries[0].data.meta.description}</p>`
         }
       </header>
       <ol>${data.unReadEntries.map(x => addEntry(x, data, actionsUp))}</ol>

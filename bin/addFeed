@@ -14,7 +14,7 @@ function onEnd (err, line) {
 }
 
 function onError (err) {
-  var log = path.join(__dirname, String(Date.now()) + '.log')
+  var log = path.join(__dirname, 'log', String(Date.now()) + '.log')
   fs.writeFile(log, String(err) + '\n\n' + err.stack, (err) => {
     err && console.error(err)
   })

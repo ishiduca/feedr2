@@ -1,4 +1,5 @@
 var Combokeys = require('combokeys')
+// var keymaps = require('../../configs/keymap')
 var scrollLines = 200
 
 module.exports = function (emitter, getData) {

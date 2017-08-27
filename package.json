@@ -1,6 +1,6 @@
 {
   "name": "feedr2",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "私家版RSS Reader",
   "main": "index.js",
   "scripts": {

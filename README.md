@@ -27,9 +27,17 @@ LDRが失くなる前に動かせるようにする
 * ?: show help / hide help
 
 
-create feed list(.txt)
+### export.xmlからfeedリストをエクスポート
+
+クローラが読み込むfeedリストはexport.xmlより単純なtsvの方が楽なので
 
 ```
 $ mkdir feeds
 $ perl -wnl -e '/title="(.*?)".*?xmlurl="(.*?)"/i and print qq($2\t$1)' eport.xml > feeds/feed.txt
+```
+
+### 新たに購読フィードを追加する
+
+```
+$ bin/addFeed xmlurl
 ```
