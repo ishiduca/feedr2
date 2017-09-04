@@ -6,6 +6,7 @@ var help = {
   k: 'go to previous entry',
   h: 'scroll down',
   l: 'scroll up',
+  f: 'jump to find form',
   v: 'open link',
   c: 'show article / hide article (description)',
   o: 'show pin list',

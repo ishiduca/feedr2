@@ -6,3 +6,4 @@ dbs
 node_modules
 package-lock.json
 static/js
+bin/log

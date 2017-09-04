@@ -1,6 +1,6 @@
 {
   "name": "feedr2",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "私家版RSS Reader",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,7 @@
     "hyperquest": "^2.1.2",
     "iconv-lite": "^0.4.18",
     "inherits": "^2.0.3",
+    "jsonpath": "^0.2.12",
     "leveldown": "^1.7.2",
     "levelup": "^1.3.9",
     "localstorage-down": "^0.6.7",
@@ -34,6 +35,7 @@
     "split2": "^2.1.1",
     "subleveldown": "^2.1.0",
     "timeago.js": "^3.0.2",
+    "trumpet": "^1.7.2",
     "websocket-stream": "^5.0.1"
   },
   "devDependencies": {

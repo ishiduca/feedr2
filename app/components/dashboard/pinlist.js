@@ -19,6 +19,7 @@ var prefix = css`
   :host>heder h3,
   :host>heder h4 {
     margin: 6px;
+    color: #ccbbaa;
   }
   :host>ol {
     list-style-type: none;

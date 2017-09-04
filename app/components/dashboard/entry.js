@@ -139,5 +139,10 @@ function dangerouslySetInnerHTML (description) {
   var opt = xtend(sanitize.defaults)
   opt.allowedTags = opt.allowedTags.concat('img')
   e.innerHTML = sanitize(description, opt)
+
+  ;[].forEach.apply(e.querySelectorAll('a'), [a => {
+    a.setAttribute('target', '_blank')
+  }])
+
   return e
 }

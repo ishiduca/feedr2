@@ -5,6 +5,7 @@ var app = buoyancy({
   unReadEntriesFocus: null,
   entriesViewModeIsFull: true,
   help: null,
+  filterField: null,
   pinList: [],
   unReadList: [],
   unReadEntries: []
@@ -21,6 +22,7 @@ app.use(require('./api/websocket'))
 app.use(require('./api/localstorage'))
 app.use(require('./api/logger'))
 app.use(require('./api/dom'))
+app.use(require('./api/filter'))
 
 app.route('/', require('./components/dashboard'))
 

@@ -4,6 +4,7 @@ var feedlist = require('./feedlist')
 var entries = require('./entries')
 var pinlist = require('./pinlist')
 var help = require('./help')
+var filterform = require('./filterform')
 
 var prefix = css`
   :host {
@@ -40,6 +41,7 @@ module.exports = function dashboard (data, params, route, actionsUp) {
     <main role="application" class=${prefix}>
       ${feedlist(data, actionsUp)}
       ${entries(data, actionsUp)}
+      ${filterform(data, actionsUp)}
       ${pinlist(data, actionsUp)}
       ${help(data, actionsUp)}
     </main>

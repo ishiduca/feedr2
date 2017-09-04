@@ -1,8 +1,4 @@
 var Combokeys = require('combokeys')
-// var keymaps = require('../../configs/keymap')
-var scrollLines = 240
-var pitchHeight = 6
-var scrollInteral = 8
 
 module.exports = function (emitter, getData) {
   var comb = new Combokeys(document.documentElement)
@@ -16,26 +12,9 @@ module.exports = function (emitter, getData) {
   comb.bind('c', () => emitter.emit('toggleEntriesViewMode'))
   comb.bind('j', () => emitter.emit('incUnReadEntriesFocus'))
   comb.bind('k', () => emitter.emit('decUnReadEntriesFocus'))
-
-  comb.bind('h', () => scroll(pitchHeight))
-  comb.bind('l', () => scroll(-pitchHeight))
-
-  function scroll (pitchHeight) {
-    var e = document.querySelector('#Entries')
-    if (!e) return console.warn('not found "#Entries"')
-
-    var line = scrollLines
-    var id = window.setInterval(() => {
-      if (line < 0) return clear()
-      e.scrollBy(0, pitchHeight)
-      line = line - Math.abs(pitchHeight)
-    }, scrollInteral)
-
-    function clear () {
-      window.clearInterval(id)
-      id = null
-    }
-  }
+  comb.bind('h', () => emitter.emit('dom:scrollDown'))
+  comb.bind('l', () => emitter.emit('dom:scrollUp'))
+  comb.bind('f', () => emitter.emit('dom:focusFilterField'))
 
   comb.bind('o', () => emitter.emit('storage:togglePinList'))
   comb.bind('p', () => {
