@@ -10,6 +10,7 @@ var prefix = css`
     height: 100%;
     z-index: 9000;
     background-color: rgba(0, 0, 0, .8);
+    overflow-y: auto;
   }
   :host>header {
     text-align: center;

@@ -1,6 +1,6 @@
 {
   "name": "feedr2",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "私家版RSS Reader",
   "main": "index.js",
   "scripts": {
@@ -40,6 +40,7 @@
   },
   "devDependencies": {
     "minimist": "^1.2.0",
+    "prettier-standard": "^6.0.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.8.0",
     "yo-yoify": "^3.7.3"

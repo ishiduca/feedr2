@@ -53,6 +53,11 @@ var prefix = css`
   }
   :host article {
     padding: 3px;
+    font-size: larger;
+    line-height: 1.8em;
+  }
+  :host article img {
+    max-width: 720px;
   }
 `
 

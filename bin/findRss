@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+'use strict'
+var fs = require('fs')
+var path = require('path')
+var findRss = require('../lib/crawler/find-feed')
+
+var argv = require('minimist')(process.argv.slice(2))
+argv._.map(uri => findRss(uri, null, onEnd))
+
+function onEnd (err, feeds) {
+  if (err) onError(err)
+  else console.log(JSON.stringify(feeds, null, 2))
+}
+
+function onError (err) {
+  var log = path.join(___dirname, 'log', String(Date.now()) + '.log')
+  fs.writeFile(log, String(err) + '\n\n' + err.stack, (err) => {
+    err && console.error(err)
+  })
+  console.log(String(err))
+  console.log(`detaile "${log}"`)
+}

@@ -9,6 +9,7 @@ var filterform = require('./filterform')
 var prefix = css`
   :host {
     font-family: Tahoma,Arial,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",Osaka,"メイリオ",Meiryo,"ＭＳ Ｐゴシック","MS PGothic",sans-serif;
+    font-size: medium;
   }
   #FeedList {
     position: fixed;
@@ -33,6 +34,10 @@ var prefix = css`
 
   a:hover {
     background-color: #ffffaa;
+  }
+
+  :host img {
+    max-width: 996px;
   }
 `
 

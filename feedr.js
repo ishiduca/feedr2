@@ -1,3 +1,4 @@
+'use strict'
 var fs = require('fs')
 var path = require('path')
 var http = require('http')
@@ -53,17 +54,11 @@ r.add('getUnReadList', p => api.getUnReadList())
 r.add('getUnReadEntries', p => api.getUnReadEntries(p.link))
 r.add('doesReadEntry', p => api.doesReadEntry(p.entry))
 r.add('doesReadEntries', p => api.doesReadEntries(p.entries))
+// r.add('findUnReadList', p => api.findUnReadList(p))
 
 websocket.createServer({server: app}, sock => {
   sock.pipe(r.route()).pipe(sock)
 })
-
-if (!module.parent) {
-  var port = process.env.PORT
-  if (!port) throw new Error('no port !')
-  var mes = 'server start to listen on port "%s"'
-  app.listen(port, () => console.log(mes, port))
-}
 
 function onError (err) {
   var log = path.join(__dirname, 'log', String(Date.now()) + '.error')
