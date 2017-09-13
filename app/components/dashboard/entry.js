@@ -143,7 +143,8 @@ function dangerouslySetInnerHTML (description) {
   var e = document.createElement('article')
   var opt = xtend(sanitize.defaults)
   opt.allowedTags = opt.allowedTags.concat('img')
-  e.innerHTML = sanitize(description, opt)
+//  e.innerHTML = sanitize(description, opt)
+  e.insertAdjacentHTML('afterbegin', sanitize(description, opt))
 
   ;[].forEach.apply(e.querySelectorAll('a'), [a => {
     a.setAttribute('target', '_blank')

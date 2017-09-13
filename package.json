@@ -1,13 +1,13 @@
 {
   "name": "feedr2",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "私家版RSS Reader",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "standard",
     "build": "npm run lint && browserify ./app/main.js -o ./static/js/bundle.js",
-    "start": "NODE_PATH=lib PORT=3000 node feedr > /dev/null 2>&1 &"
+    "start": "NODE_PATH=lib PORT=3000 bin/feedr > /dev/null 2>&1 &"
   },
   "author": "ishiduca@gmail.com",
   "license": "MIT",
