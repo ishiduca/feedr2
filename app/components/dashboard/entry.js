@@ -5,7 +5,9 @@ var sanitize = require('sanitize-html')
 var timeago = require('timeago.js')
 
 var prefix = css`
-  :host {}
+  :host {
+    border-bottom: 2px solid #00aaff;
+  }
   :host>div {
     padding: 9px;
   }
